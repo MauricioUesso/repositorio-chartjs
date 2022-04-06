@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementando o ChartJS</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="display: flex;">
+    <h2>Gráfico de linha</h2>
+    <div>
+        <canvas id="myChart" style="position: relative; height:40vh; width:40vw"></canvas>
+    </div>
+    <h2>Gráfico de barra</h2>
+    <div>
+        <canvas id="myChart2" style="position: relative; height:40vh; width:40vw"></canvas>
+    </div>
+    
+    
+</body>
+
+<script>
+    //*config do gráfico de linha
+    const labels = [
+      '12:00',
+      '13:00',
+      '14:00',
+      '15:00',
+      '16:00',
+      '17:00',
+    ];
+  
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: 'Temperatura',
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: [20+10, 30-1, 40-12, 50-25, 60-38, 70-47, 80, 90],
+      },
+      {
+        label: 'Umidade',
+        backgroundColor: 'rgb(54, 162, 235)',
+        borderColor: 'rgb(54, 162, 235)',
+        data: [20+60, 30+52, 40+40, 50+35, 60+20, 70+13, 80, 90],
+      }]
+    };
+    //*config do gráfico de barra
+    const labels2 = [
+      'Janeiro',
+      'Fevereiro',
+      'Março',
+      'Abril',
+      'Maio',
+      'Junho',
+    ];
+  
+    const data2 = {
+      labels: labels2,
+      datasets: [{
+        label: 'Temperatura média',
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: [0+22, 10+14, 20+7, 30-7, 40-20, 50-32, 60, 70, 80, 90, 100],
+      },
+      {
+        label: 'Umidade média',
+        backgroundColor: 'rgb(54, 162, 235)',
+        borderColor: 'rgb(54, 162, 235)',
+        data: [20+70, 30+59, 40+53, 50+37, 60+28, 70+12, 80, 90],
+      }]
+    };
+  //*constante do gráfico de linha
+    const config = {
+      type: 'line',
+      data: data,
+      options: {}
+    };
+//*constante do gráfico de barra
+    const config2 = {
+      type: 'bar',
+      data: data2,
+      options: {}
+    };
+
+    
+  </script>
+
+<script>
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+
+    const myChart2 = new Chart(
+      document.getElementById('myChart2'),
+      config2
+    );
+  </script>
+
+</html>
